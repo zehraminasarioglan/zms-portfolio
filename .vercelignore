@@ -1,5 +1,5 @@
-# Yayına SADECE site gerekli: app.py, templates/, public/, requirements.txt, vercel.json
-# Aşağıdakiler (Illustrator kaynakları, dev orijinaller, kullanılmayan dosyalar) yayına GİRMEZ:
+# Yayına gerekli: app.py, api/, templates/, public/, requirements.txt, vercel.json
+# Aşağıdakiler (dev orijinaller, Illustrator kaynakları, kullanılmayanlar) yayına GİRMEZ:
 .git/
 .DS_Store
 __pycache__/
