@@ -721,7 +721,7 @@
         <div class="photo-ring"></div>
         <div class="photo-dots"></div>
         <div class="photo-clip">
-          <img src="/picture" alt="Zehra Mina Sarıoğlan" class="photo-cutout" />
+          <img src="/picture.png" alt="Zehra Mina Sarıoğlan" class="photo-cutout" />
         </div>
       </div>
     </div>
@@ -780,13 +780,13 @@
       <div class="card-preview">
         {% if project.cover_image %}
           <img
-            src="/cover/{{ project.cover_image | url_encode }}"
+            src="/covers/{{ project.cover_image | url_encode }}"
             alt="{{ project.name }}"
             loading="lazy"
           />
         {% elif project.preview_image %}
           <img
-            src="/file/{{ project.id }}/{{ project.preview_image | url_encode }}"
+            src="/projects/{{ project.id }}/{{ project.preview_image | url_encode }}"
             alt="{{ project.name }}"
             loading="lazy"
           />
@@ -951,7 +951,7 @@
     /* video project: show cover + Drive button */
     if (p.is_video) {
       const coverSrc = p.cover_image
-        ? `/cover/${encodeURIComponent(p.cover_image)}`
+        ? `/covers/${encodeURIComponent(p.cover_image)}`
         : fileURL(p.id, p.preview_image);
       html += `
         <div class="gallery-main-wrap">
@@ -1017,7 +1017,7 @@
   }
 
   function fileURL(projectId, filename) {
-    return `/file/${encodeURIComponent(projectId)}/${encodeURIComponent(filename)}`;
+    return `/projects/${encodeURIComponent(projectId)}/${encodeURIComponent(filename)}`;
   }
 
   function changeImg(dir) {

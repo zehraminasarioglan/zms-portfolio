@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 ROOT_DIR   = os.path.dirname(os.path.abspath(__file__))
-STATIC_DIR = os.path.join(ROOT_DIR, 'static')
+PUBLIC_DIR = os.path.join(ROOT_DIR, 'public')
 
 
 @app.template_filter('url_encode')
@@ -33,7 +33,7 @@ PROJECTS = [
         "description": "A poster design created for Zeynep Yüceler's award recognized short story A Convenient Day. Through a minimal black and white composition, the poster reflects the story's tension between control, timing, and unexpected consequences.",
         "accent": "#86C8A4",
         "preview_image": "a convenient day mockup poster.png",
-        "images": ["a convenient day mockup poster.png", "zehraminasarioglangra401ğroject3.jpg"],
+        "images": ["a convenient day mockup poster.png", "zehraminasarioglangra401groject3.jpg"],
         "pdfs": []
     },
     {
@@ -55,7 +55,7 @@ PROJECTS = [
         "accent": "#C39BD3",
         "preview_image": "Label Tag PSD MockUp.png",
         "images": ["Label Tag PSD MockUp.png"],
-        "pdfs": ["Metal Mug Mockup.pdf", "TYPOGRAPHYFİNALPROJECT.pdf"]
+        "pdfs": ["Metal Mug Mockup.pdf", "TYPOGRAPHYFINALPROJECT.pdf"]
     },
     {
         "id": "magazine-design",
@@ -79,7 +79,7 @@ PROJECTS = [
             "poster pawtions-1.jpg",
             "flyer pawtions-1.jpg",
             "busssinesscardpaw.jpg",
-            "anahtarlık pawtions -1.jpg",
+            "anahtarlik pawtions -1.jpg",
             "Screenshot 2025-01-25 at 14.12.03.png"
         ],
         "pdfs": ["branding pawtions.pdf", "pawtions cover.pdf"]
@@ -90,10 +90,10 @@ PROJECTS = [
         "folder": "social media post design",
         "description": "A series of social media posts designed for real brands including Erasta and FitNFood. Each design adapts the brand's identity into engaging digital content for Instagram and beyond.",
         "accent": "#7EC8E3",
-        "preview_image": "erasta 10 ağustos post.jpg",
+        "preview_image": "erasta 10 agustos post.jpg",
         "images": [
-            "erasta 10 ağustos post.jpg",
-            "erasta ağustos pazartesi post.jpg",
+            "erasta 10 agustos post.jpg",
+            "erasta agustos pazartesi post.jpg",
             "erasta sinema.png",
             "erasta.png",
             "fitnfoodpostson1jpg.jpg"
@@ -190,23 +190,15 @@ def index():
     return render_template('index.html', projects=PROJECTS)
 
 
-@app.route('/picture')
-def serve_picture():
-    return send_from_directory(STATIC_DIR, 'backgroundsuzfoto.png')
-
-
-@app.route('/cover/<path:filename>')
-def serve_cover(filename):
-    return send_from_directory(os.path.join(STATIC_DIR, 'covers'), filename)
-
-
-@app.route('/file/<project_id>/<path:filename>')
-def serve_file(project_id, filename):
-    if not any(p['id'] == project_id for p in PROJECTS):
+# Assets (covers, projects, picture.png) live in /public and are served
+# directly by Vercel's CDN in production. This fallback lets `python app.py`
+# still serve them during local development.
+@app.route('/<path:filename>')
+def public_files(filename):
+    full = os.path.join(PUBLIC_DIR, filename)
+    if not os.path.isfile(full):
         abort(404)
-    return send_from_directory(
-        os.path.join(STATIC_DIR, 'projects', project_id), filename
-    )
+    return send_from_directory(PUBLIC_DIR, filename)
 
 
 if __name__ == '__main__':

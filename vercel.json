@@ -3,10 +3,14 @@
     {
       "src": "app.py",
       "use": "@vercel/python",
-      "config": { "includeFiles": ["templates/**", "static/**"] }
+      "config": {
+        "includeFiles": ["templates/**"],
+        "excludeFiles": "public/**"
+      }
     }
   ],
   "routes": [
+    { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "app.py" }
   ]
 }
