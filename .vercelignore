@@ -1,38 +1,39 @@
 # Yayına gerekli: app.py, api/, templates/, public/, requirements.txt, vercel.json
-# Aşağıdakiler (dev orijinaller, Illustrator kaynakları, kullanılmayanlar) yayına GİRMEZ:
-.git/
+# Junk (her yerde):
 .DS_Store
 __pycache__/
 *.pyc
-Cover_letter.pdf
-DMSans-Bold.ttf
-DMSans-Light.ttf
-DMSans-Medium.ttf
-DMSans-Regular.ttf
-Poster Design/
-Product Package Compositional Redesign/
-Web Design/
-ZehraMina_Portfolio.pdf
-__pycache__/
-airbnb promo video/
-airbnbcover.jpg
-backgroundsuzfoto.png
-catalog design/
-catalog design cover.png
-conceptual poster design/
-contact.png
-encyclopaedia design/
-encyclopedia cover.jpg
-entropy video design/
-generate_portfolio.py
-kinetic typography motion design  project/
-kinetic_typography_cover.png
-logo design/
-magazine design/
-pawtions jpg/
-picture.JPG
-poster design cover.png
-social media post design/
-theatre poster cover.jpg
-theatre poster design/
-zehra_cv.pdf
+# Kök klasördeki dev orijinalleri/kaynakları (SADECE kök — public/ etkilenmesin diye '/' ile sabit):
+/.git/
+/Cover_letter.pdf
+/DMSans-Bold.ttf
+/DMSans-Light.ttf
+/DMSans-Medium.ttf
+/DMSans-Regular.ttf
+/Poster Design/
+/Product Package Compositional Redesign/
+/Web Design/
+/ZehraMina_Portfolio.pdf
+/__pycache__/
+/airbnb promo video/
+/airbnbcover.jpg
+/backgroundsuzfoto.png
+/catalog design/
+/catalog design cover.png
+/conceptual poster design/
+/contact.png
+/encyclopaedia design/
+/encyclopedia cover.jpg
+/entropy video design/
+/generate_portfolio.py
+/kinetic typography motion design  project/
+/kinetic_typography_cover.png
+/logo design/
+/magazine design/
+/pawtions jpg/
+/picture.JPG
+/poster design cover.png
+/social media post design/
+/theatre poster cover.jpg
+/theatre poster design/
+/zehra_cv.pdf
