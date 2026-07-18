@@ -48,16 +48,6 @@ PROJECTS = [
         "pdfs": ["encyclopaedia.pdf"]
     },
     {
-        "id": "logo-design",
-        "name": "Logo Design",
-        "folder": "logo design",
-        "description": "A typography-driven logo and brand identity project spanning labels, tags, and product mockups. The designs demonstrate versatility and visual cohesion across print and merchandise applications.",
-        "accent": "#C39BD3",
-        "preview_image": "Label Tag PSD MockUp.png",
-        "images": ["Label Tag PSD MockUp.png"],
-        "pdfs": ["Metal Mug Mockup.pdf", "TYPOGRAPHYFINALPROJECT.pdf"]
-    },
-    {
         "id": "magazine-design",
         "name": "Magazine Design",
         "folder": "magazine design",
